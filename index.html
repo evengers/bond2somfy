@@ -49,11 +49,13 @@ function myCmdFunction(theCmd) {
    let theAwningDevice = '59b037c0';
    let theIP = 'http://192.168.2.112';
    
+   /*
   if (theCmd == "Open") alert("Open!" + theToken + theIP + theAwningDevice);
   if (theCmd == "Preset") alert( "Pause or preset!");
   if (theCmd == "Close") alert("Close!");
-  
-  document.getElementById("themsg").innerHTML = theCmd + " cause YOU CLICKED ME!";
+    */
+    
+  document.getElementById("themsg").innerHTML = theCmd + " working!";
   
   aFetchStr = theIP+'/v2/devices/' +  theAwningDevice + '/actions/' + theCmd;
   
