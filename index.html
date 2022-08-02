@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:,">
+    <title>Awning Control</title>
+    
+  </head>
+  
+    <style>
+    .wrapper{
+      text-align: center;
+    }
+  .btn-pressed {
+    padding: 15px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    background-color: #302ea3;
+    border-radius: 10px;
+    box-shadow: 0 9px #999;
+  }
+
+  .btn-pressed:hover {
+    background-color: #7f1d1d;
+  }
+
+  .btn-pressed:active {
+    background-color: #7f1d1d;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+  }
+</style>
+
+  <body style="background-color: #33FF36">
+      <br><br><br>
+      <div class ="wrapper">
+     <button class="btn-pressed" id="open" type="button" onclick="myCmdFunction('Open')">Awning Out! </button> <br><br><br>
+     <button class="btn-pressed" id="pause" type="button" onclick="myCmdFunction('Preset')">Pause or Preset! </button> <br><br><br>
+     <button class="btn-pressed" id="close" type="button" onclick="myCmdFunction('Close')">Awning In! </button> <br><br><br><br>
+       </div>
+     <p id="themsg">waiting ... </p>
+
+<script>
+function myCmdFunction(theCmd) {
+   let theToken = '8791507d21c06b02';
+   let theAwningDevice = '59b037c0';
+   let theIP = 'http://192.168.2.112';
+   
+  if (theCmd == "Open") alert("Open!" + theToken + theIP + theAwningDevice);
+  if (theCmd == "Preset") alert( "Pause or preset!");
+  if (theCmd == "Close") alert("Close!");
+  
+  document.getElementById("themsg").innerHTML = theCmd + " cause YOU CLICKED ME!";
+  
+  aFetchStr = theIP+'/v2/devices/' +  theAwningDevice + '/actions/' + theCmd;
+  
+  theHeaders = new Headers({
+        'Access-Control-Allow-Credentials': true,
+        'Access-Control-Allow-Origin': 'http://localhost',
+        'BOND-Token': theToken
+   })
+   
+ 
+  
+  fetch(aFetchStr, {
+     method: 'PUT', 
+     headers: theHeaders,
+     ContentType: 'application/json',
+     body: "{}",
+     payload: '{}'
+   })
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+  
+}
+
+</script>
+
+
+  </body>
+</html>
