@@ -1,10 +1,10 @@
 const fetch = require('node-fetch');
 const path = require('path');
  
-
- let theToken = '8791507d21c06b02';
-  let theAwningDevice = '59b037c0';
-   let theIP = 'http://192.168.2.112';
+// you can find the values for these 3 in the bondhome app settings for bridge and for device
+ let theToken = '???????????????';
+  let theAwningDevice = '???????';
+   let theIP = 'http://192.168.2.112'; // change to your local ip and maybe make it static in yoour router
    
    let aFetchStr = theIP+'/v2/devices/' +  theAwningDevice + '/actions';
    
