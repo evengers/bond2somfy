@@ -22,6 +22,19 @@ To use this with your own awning you need to:
           
   (c) find a simple way to host the index page. I'm obviously using github.      
   
+  
+            
+
+using nodejs as a proxy with a simple vanilla javascript and html page
+
+- unfortunately the approach above will work from a browser with cors disabled but you are likely to run into problems. 
+This is because the bond bridge expects http. Curl works fine with the curl examples shown on the doc site but chokes when you try from a localhost on the same network.  
+
+So, I dusted off an old raspberry Pi and use that as a proxy server.  See the proxy2bond.js  and index4proxy.html files.
+
+
+ 
+  
     If you are using IOS you can save the page to your homescreen (like any other website)      
           
 

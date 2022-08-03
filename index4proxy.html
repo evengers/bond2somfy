@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link rel="icon" href="data:;base64,iVBORw0KGgo=">
+    <title>Awning Control</title>
+    
+  </head>
+  
+    <style>
+    .wrapper{
+      text-align: center;
+    }
+  .btn-pressed {
+    padding: 15px 25px;
+    font-size: 20px;
+    cursor: pointer;
+    text-align: center;
+    color: white;
+    background-color: #302ea3;
+    border-radius: 10px;
+    box-shadow: 0 9px #999;
+  }
+
+  .btn-pressed:hover {
+    background-color: #7f1d1d;
+  }
+
+  .btn-pressed:active {
+    background-color: #7f1d1d;
+    box-shadow: 0 4px #666;
+    transform: translateY(4px);
+  }
+</style>
+
+  <body style="background-color: #33FF36">
+      <br><br><br>
+      <div class ="wrapper">
+     <button class="btn-pressed" id="open" type="button" onclick="myCmdFunction('Open')">Awning Out! </button> <br><br><br>
+     <button class="btn-pressed" id="pause" type="button" onclick="myCmdFunction('Preset')">Pause or Preset! </button> <br><br><br>
+     <button class="btn-pressed" id="close" type="button" onclick="myCmdFunction('Close')">Awning In! </button> <br><br><br><br>
+       </div>
+     <p id="themsg">waiting ... </p>
+     <p id="first">waiting ... </p>
+     <p id="second">waiting ... </p>
+
+<script>
+function myCmdFunction(theCmd) {
+   
+   let currentUrl = "http://" + window.location.host ; 
+   
+   console.log(currentUrl);
+   document.getElementById("first").innerHTML = currentUrl;
+   let nextUrl = currentUrl + "/" + theCmd;
+   console.log(nextUrl);
+   document.getElementById("second").innerHTML = nextUrl;
+   window.location.assign(nextUrl);
+
+    
+  let doThis = theCmd + " working!";
+  document.getElementById("themsg").innerHTML = doThis;
+  
+  console.log(doThis);
+  
+
+  
+}
+
+</script>
+
+
+  </body>
+</html>
