@@ -28,11 +28,17 @@ To use this with your own awning you need to:
 using nodejs as a proxy with a simple vanilla javascript and html page
 
 - unfortunately the approach above will work from a browser with cors disabled but you are likely to run into problems. 
-This is because the bond bridge expects http. Curl works fine with the curl examples shown on the doc site but chokes when you try from a localhost on the same network.  
+This is because the bond bridge expects http. So, PUT originating from localhost or any https will be rejected by browsers. Curl works fine from a terminal (i.e.,  with the curl examples shown on the doc site) but chokes when you try from a localhost on the same network.  
 
 So, I dusted off an old raspberry Pi and use that as a proxy server.  See the proxy2bond.js  and index4proxy.html files.
 
+so now I have these working:
 
+Alexa / Siri => bond bridge => somfy awning
+and
+Iphone/ipad/laptop => proxy on Raspberry Pi => bond bridge => somfy awning
+
+i think the developers could ease this connection by tweeking the bond bridge endpoint.
  
   
     If you are using IOS you can save the page to your homescreen (like any other website)      
